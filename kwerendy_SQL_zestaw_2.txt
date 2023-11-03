@@ -1,0 +1,2 @@
+zad1
+DELETE FROM postac WHERE id_postaci = 5,6
