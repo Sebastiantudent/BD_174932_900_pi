@@ -42,6 +42,26 @@ mysql> ALTER TABLE postac ADD funkcja varchar(20);
 mysql> UPDATE postac
     -> SET funkcja = 'kapitan'
     -> WHERE id_postaci = 1;
+mysql> alter table postac add statek varchar(50), add foreign key(statek) references statek(nazwa_statku);
+
+mysql> update postac set statek = 'Aniela' where id_postaci = 1;
+
+mysql> update postac set statek = 'Aniela' where id_postaci = 3;
+
+mysql> update postac set statek = 'Aniela' where id_postaci = 4;
+
+mysql> update postac set statek = 'Aniela' where id_postaci = 5;
+
+mysql> update postac set statek = 'Biwa' where id_postaci = 6;
+
+mysql> update postac set statek = 'Biwa' where id_postaci = 7;
+
+mysql> update postac set statek = 'Biwa' where id_postaci = 8;
+
+mysql> delete from izba where nazwa_izby ='spizarnia';
+mysql> drop table izba;
+
+
 
 
 
