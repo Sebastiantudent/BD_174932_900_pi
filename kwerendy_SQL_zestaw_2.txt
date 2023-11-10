@@ -1,2 +1,14 @@
 zad1
-DELETE FROM postac WHERE id_postaci = 5,6
+mysql> delete from postac where nazwa = 'Mappa';
+mysql> delete from postac where nazwa = 'Borys';
+mysql> ALTER TABLE walizka drop foreign key walizka_ibfk_1;
+mysql> ALTER TABLE walizka drop foreign key przetwory_ibfk_1;
+mysql> ALTER TABLE walizka drop foreign key przetwory_ibfk_2;
+mysql> alter table postac
+    -> modify id_postaci int;
+mysql> ALTER TABLE postac DROP PRIMARY KEY;
+zad2
+ADD pesel varchar(11) not null;
+alter table postac ADD PRIMARY KEY (pesel);
+ALTER TABLE postac MODIFY COLUMN rodzaj enum('wiking', 'ptak', 'kobieta', 'syrena');
+INSERT INTO postac(nazwa, rodzaj, data_ur, wiek) VALUES('Gertruda Nieszczera', 'syrena','1761-09-02','27');
