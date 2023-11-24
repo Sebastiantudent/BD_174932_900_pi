@@ -1,0 +1,19 @@
+zad 1
+a)
+select avg(waga) as calkowita_waga from kreatura where rodzaj like '%wiking%';
+b)
+select rodzaj, avg(waga), count(nazwa) from kreatura group by (rodzaj);
+c)
+select rodzaj, avg(YEAR(dataUr)) from kreatura group by (rodzaj);
+zad 2
+a)
+select rodzaj ,sum(waga) as calkowita_waga from zasob group by (rodzaj);
+b)
+select nazwa ,avg(waga) as srednia_waga from zasob where ilosc > 3 group by (nazwa) having 10 < sum(waga);
+c)
+select distinct rodzaj, count(nazwa) as unikalna_nazwa from zasob where ilosc > 1 group by (rodzaj);
+zad 3
+a)
+
+
+
