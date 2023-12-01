@@ -1,6 +1,6 @@
 zad 1
 a)
-select avg(waga) as calkowita_waga from kreatura where rodzaj like '%wiking%';
+select avg(waga) as srednia_waga from kreatura where rodzaj like '%wiking%';
 b)
 select rodzaj, avg(waga), count(nazwa) from kreatura group by (rodzaj);
 c)
@@ -14,6 +14,29 @@ c)
 select distinct rodzaj, count(nazwa) as unikalna_nazwa from zasob where ilosc > 1 group by (rodzaj);
 zad 3
 a)
+select ekwipunek.ilosc,kreatura.nazwa from kreatura inner join ekwipunek
+on kreatura.idKreatury=ekwipunek.idKreatury;
+b)
+select ekwipunek.ilosc,kreatura.nazwa,zasob.nazwa from ((ekwipunek inner
+join kreatura on ekwipunek.idKreatury = kreatura.idKreatury) inner join zasob on ekwipunek.idZasobu = zasob.idZasobu);
+c)
+select ekwipunek.ilosc,kreatura.nazwa from kreatura left join ekwipunek on kreatura.idKreatury=ekwipunek.idKreatury 
+where ekwipunek.ilosc is null;
+zad 4
+a)[BŁĄD do poprawy]
+select kreatura.nazwa,zasob.nazwa,ekwipunek.ilosc from ((ekwipunek inner
+join kreatura on ekwipunek.idKreatury = kreatura.idKreatury) inner join zasob on ekwipunek.idZasobu = zasob.idZasobu) where kreatura.nazwa like '%wiking%' and kreatura.dataUr between 1960-01-01 and 1970-01-01;
+b)
+ select ekwipunek.ilosc,kreatura.nazwa,zasob.nazwa from kreatura inner join ekwipunek on 
+ekwipunek.idKreatury = kreatura.idKreatury inner join zasob on ekwipunek.idZasobu = zasob.idZasobu 
+where zasob.rodzaj like '%jedzenie%' order by
+kreatura.dataUr desc limit 5;
+c)
+select A.nazwa as nazwa1, B.nazwa as nazwa2 from kreatura A, kreatura B where B.idKreatury=A.idKreatury+5;
+zad 5
+a)
+select avg(zasob.waga) as srednia_waga,kreatura.rodzaj from ekwipunek inner join kreatura on ekwipunek.idKreatury = kreatura.idKreatury inner join zasob
+on ekwipunek.idZasobu = zasob.idZasobu where ekwipunek.ilosc < 30 and kreatura.nazwa <> 'malpa' and kreatura.nazwa <> 'waz' group by kreatura.rodzaj;
 
-
+b)
 
