@@ -1,0 +1,22 @@
+zad.1
+a)
+create table sliskis.kreatura1 as select * from wikingowie.kreatura;
+create table sliskis.uczestnicy as select * from wikingowie.uczestnicy;
+create table sliskis.etapy_wyprawy as select * from wikingowie.etapy_wyprawy;
+create table sliskis.sektor as select * from wikingowie.sektor;
+create table sliskis.wyprawa as select * from wikingowie.wyprawa;
+b)
+ select kreatura1.nazwa from kreatura1 left join uczestnicy on
+ kreatura1.idKreatury = uczestnicy.id_uczestnika where uczestnicy.id_uczestnika is null;
+c)
+select wyprawa.nazwa, uczestnicy.id_uczestnika, ekwipunek.ilosc from wyprawa 
+inner join uczestnicy on wyprawa.id_wyprawy = uczestnicy.id_wyprawy 
+inner join ekwipunek on uczestnicy.id_uczestnika = ekwipunek.idKreatury;
+zad.2
+a)
+
+b)
+
+
+
+
