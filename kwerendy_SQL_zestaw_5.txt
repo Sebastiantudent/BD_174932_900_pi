@@ -14,9 +14,31 @@ inner join uczestnicy on wyprawa.id_wyprawy = uczestnicy.id_wyprawy
 inner join ekwipunek on uczestnicy.id_uczestnika = ekwipunek.idKreatury;
 zad.2
 a)
-
+select wyprawa.nazwa, count(uczestnicy.id_uczestnika) as 'liczba uczestnikow', group_concat(kreatura.nazwa) from wyprawa
+ inner join on wyprawa.id_wyprawy=uczestnicy.id_wyprawy 
+inner join kreatura on uczestnicy.id_uczestnika=kreatura.idKreatury group by wyprawa.nazwa;
+b)
+ select wyprawa.id_wyprawy, etapy_wyprawy.kolejnosc, sektor.nazwa, kreatura.nazwa from etapy_wyprawy 
+inner join wyprawa on wyprawa.id_wyprawy = etapy_wyprawy.idWyprawy 
+inner join sektor on sektor.id_sektora = etapy_wyprawy.sektor 
+inner join kreatura on  wyprawa.kierownik = kreatura.idKreatury;
+zad.3
+a)
+ select sektor.nazwa, count(etapy_wyprawy.sektor) as 'ilosc odwiedzin' from sektor 
+left join etapy_wyprawy on sektor.id_sektora=etapy_wyprawy.sektor group by sektor.nazwa;
+b)
+select kreatura.nazwa, count(uczestnicy.id_uczestnika) as 'liczba wypraw',
+if(count(uczestnicy.id_uczestnika)>0,'bral udzial w wyprawie','nie bral udzuialu w wyprawie')
+from kreatura 
+left join uczestnicy on kreatura.idKreatury = uczestnicy.id_uczestnika group by kreatura.nazwa;
+zad.4
+a)
+ select wyprawa.nazwa, sum(length(etapy_wyprawy.dziennik)) as 'suma znakow' from wyprawa 
+inner join etapy_wyprawy on wyprawa.id_wyprawy = etapy_wyprawy.idWyprawy 
+group by wyprawa.nazwa having  sum(length(etapy_wyprawy.dziennik)) < 400;
 b)
 
-
+zad.5
+a)
 
 
