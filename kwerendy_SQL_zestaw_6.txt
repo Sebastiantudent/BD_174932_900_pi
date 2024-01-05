@@ -1,0 +1,24 @@
+zad 1
+delimiter $$
+Create Trigger waga before insert on kreatura  
+for each row 
+Begin 
+if new.waga <= 0 then
+signal sqlstate '45000' set message_text = 'waga tylko powyzej 0';
+End if;
+end;
+$$
+
+zad 2
+create trigger archiwa before delete on wyprawa 
+for each row 
+Begin 
+insert into archiwum_wypraw 
+values(old.id_wyprawy, old.nazwa, old.data_rozpoczecia, old.data_zakonczenia, old.kierownik); 
+end;
+$$
+zad 3
+
+
+
+
