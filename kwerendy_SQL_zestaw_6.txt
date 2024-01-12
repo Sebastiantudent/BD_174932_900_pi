@@ -10,14 +10,20 @@ end;
 $$
 
 zad 2
-create trigger archiwa before delete on wyprawa 
-for each row 
-Begin 
+create trigger archiwa before delete on wyprawa
+for each row
+Begin
 insert into archiwum_wypraw 
-values(old.id_wyprawy, old.nazwa, old.data_rozpoczecia, old.data_zakonczenia, old.kierownik); 
+values (old.id_wyprawy.wyprawa, old.nazwa.wyprawa, old.data_rozpoczecia.wyprawa, old.data_zakonczenia.wyprawa, old.kierownik.wyprawa); 
 end;
 $$
+
 zad 3
+a)
+Create procedure eliksir_sily(in idKreatur int) begin select nazwa, udzwig*1.2 as 'udzwig po uzyciu eliksiru' 
+from kreatura where idKreatury = idKreatur; end;$$
+call eliksir_sily('1')$$
+b)
 
 
 
